@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKES</title>
+</head>
+<body>
+<button id="hi">Hi</button>
+<div class="box" id="box">
+
+</div>
+</body>
+</html>
+<script>
+    var button=document.getElementById('hi');
+    var display=document.getElementById('box');
+    button.addEventListener('click',()=>{
+        fetch("http://localhost/jokes/api/get.php")
+        .then(response=>{
+            if(response.ok===true){
+                response.text()
+                .then(data=>{
+                display.innerHTML=data
+                }
+                )
+            }
+            else{
+                display.innerHTML='not successful'
+            }
+        })
+display.innerHTML="hello world"
+    })
+</script>
